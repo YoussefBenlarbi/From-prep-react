@@ -1,8 +1,9 @@
-
+// import MyForm from "./Form";
+import MyClassForm from "./ClassForm";
 function App() {
   return (
     <div>
-    <h1>Test msg</h1>
+    <MyClassForm/>
     </div>
   );
 }
