@@ -1,10 +1,9 @@
 import React from 'react';
-// import Select from './Components/Select';
+// import Select from './Components/Select.js';
 class MyClassForm extends React.Component {
-    
 	constructor(props) {
 		super(props);
-        MyClassForm.Stylelabl ={color:'red'};
+		MyClassForm.Stylelabl = { color: 'red' };
 		this.state = {
 			nom: '',
 			prenom: '',
@@ -12,11 +11,10 @@ class MyClassForm extends React.Component {
 			nationalite: 'rien',
 			sexe: 'R',
 			lang: [],
-            information :""
+			information: '',
 		};
 	}
-    
-    
+
 	HandleNom(e) {
 		this.setState({ nom: e.target.value });
 	}
@@ -39,23 +37,24 @@ class MyClassForm extends React.Component {
 					lang: this.state.lang.filter((element) => element !== e.target.value),
 			  });
 	}
-    HandleButton(e){
-        e.preventDefault();
-        this.setState({information:
-            `Nom ${this.state.nom}
+	HandleButton(e) {
+		e.preventDefault();
+		this.setState({
+			information: `Nom :${this.state.nom}
              Prenom :${this.state.prenom}
              Description :${this.state.description} 
              Nationalite : ${this.state.nationalite}
              Sexe : ${this.state.sexe}
-             Lang ; ${this.state.lang} `})
-    }
-    
+             Langues : ${this.state.lang} `,
+		});
+	}
+
 	render() {
 		return (
 			<div>
 				<h1>Formulaire a Saisir : </h1>
 				{/* <form> */}
-					<form onSubmit={(e) => this.HandleButton(e)}>
+				<form onSubmit={(e) => this.HandleButton(e)}>
 					<table>
 						<tr>
 							<td>
@@ -68,7 +67,9 @@ class MyClassForm extends React.Component {
 									onChange={(e) => this.HandleNom(e)}
 								/>
 							</td>
-							<td style={MyClassForm.Stylelabl}>{this.state.nom.trim() === '' ? '(*)' :''}</td>
+							<td style={MyClassForm.Stylelabl}>
+								{this.state.nom.trim() === '' ? '(*)' : ''}
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -81,7 +82,9 @@ class MyClassForm extends React.Component {
 									onChange={(e) => this.Handleprenom(e)}
 								/>
 							</td>
-							<td style={MyClassForm.Stylelabl}>{this.state.prenom.trim()=== '' ? '(*)' :''}</td>
+							<td style={MyClassForm.Stylelabl}>
+								{this.state.prenom.trim() === '' ? '(*)' : ''}
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -89,13 +92,15 @@ class MyClassForm extends React.Component {
 							</td>
 							<td>
 								<textarea
-									placeholder="Saisir la description  ...."
+									placeholder="Saisir la description..."
 									onChange={(e) => this.Handledescription(e)}
 									cols="20"
 									rows="5"
 								></textarea>
 							</td>
-							<td style={MyClassForm.Stylelabl}>{this.state.description.trim()=== ''? '(*)' :''}</td>
+							<td style={MyClassForm.Stylelabl}>
+								{this.state.description.trim() === '' ? '(*)' : ''}
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -103,9 +108,9 @@ class MyClassForm extends React.Component {
 							</td>
 							<td>
 								{/* <Select
-                                    
-                                    options={['Tanzania', 'Togo', 'Haiti', 'Mozanbi9']}
-                                /> */}
+									onChange={this.HandleNationalite}
+									options={['Tanzania', 'Togo', 'Haiti', 'Mozanbi9']}
+								/> */}
 								<select onChange={(e) => this.HandleNationalite(e)}>
 									<option value="rien">Choisir Nationalite </option>
 
@@ -114,7 +119,9 @@ class MyClassForm extends React.Component {
 									<option value="Togo">Togo</option>
 								</select>
 							</td>
-							<td style={MyClassForm.Stylelabl}>{this.state.nationalite === 'rien'? '(*)' :''}</td>
+							<td style={MyClassForm.Stylelabl}>
+								{this.state.nationalite === 'rien' ? '(*)' : ''}
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -136,7 +143,9 @@ class MyClassForm extends React.Component {
 									onChange={(e) => this.HandleSexe(e)}
 								/>
 							</td>
-							<td style={MyClassForm.Stylelabl}>{this.state.sexe=== 'R'? '(*)' :''}</td>
+							<td style={MyClassForm.Stylelabl}>
+								{this.state.sexe === 'R' ? '(*)' : ''}
+							</td>
 						</tr>
 						<tr>
 							<td>
@@ -162,11 +171,13 @@ class MyClassForm extends React.Component {
 									onChange={(e) => this.HandleLang(e)}
 								/>
 							</td>
-							<td style={MyClassForm.Stylelabl}>{this.state.lang.length=== 0 ? '(*)' :''}</td>
+							<td style={MyClassForm.Stylelabl}>
+								{this.state.lang.length === 0 ? '(*)' : ''}
+							</td>
 						</tr>
 						<tr>
 							<td colSpan={3}>
-								<button>envoyer</button>
+								<button>Envoyer</button>
 							</td>
 						</tr>
 						<tr>
