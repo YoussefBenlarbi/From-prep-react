@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Select from './Components/Select';
+
 function MyForm() {
+	
 	function HandleNom(e) {
 		setNom(e.target.value);
 	}
@@ -13,24 +15,30 @@ function MyForm() {
 	function HandleSexe(e) {
 		setSexe(e.target.value);
 	}
+	function Handledate(e) {
+		setDate(e.target.value);
+	}
+	
 	function HandleButton(e) {
 		e.preventDefault();
 		setInformation(
 			`Nom : ${nom}
 			 Prenom :${prenom}
+			 Date : ${date}
 			 Description :${description}
 			 Nationalite :${nationalite}
 			 Sexe : ${sexe} 
 			 Langues: ${lang}`
 		);
 	}
-	function HandleLang(e) {	
+	function HandleLang(e) {
 		e.target.checked
 			? setLang([...lang, e.target.value])
 			: setLang(lang.filter((element) => element !== e.target.value));
 	}
 	const [nom, setNom] = useState('');
 	const [prenom, setPrenom] = useState('');
+	const [date, setDate] = useState('');
 	const [description, setDescription] = useState('');
 	const [nationalite, setNationalite] = useState('rien');
 	const [sexe, setSexe] = useState('R');
@@ -39,7 +47,7 @@ function MyForm() {
 	const StyleLabel = { color: 'red' };
 	return (
 		<div>
-			<h1>Formulaire a Saisir :	</h1>
+			<h1>Formulaire a Saisir : </h1>
 			<form onSubmit={(e) => HandleButton(e)}>
 				<table>
 					<tr>
@@ -67,6 +75,19 @@ function MyForm() {
 							/>
 						</td>
 						<td style={StyleLabel}>{prenom.trim() === '' ? '(*)' : ' '}</td>
+					</tr>
+					<tr>
+						<td>
+							<label htmlFor="date">date :</label>
+						</td>
+						<td>
+							<input
+								type="date"
+								placeholder="Saisir le date ...."
+								onChange={(e) => Handledate(e)}
+							/>
+						</td>
+						<td style={StyleLabel}>{date.trim() === '' ? '(*)' : ' '}</td>
 					</tr>
 					<tr>
 						<td>
@@ -146,7 +167,7 @@ function MyForm() {
 					</tr>
 					<tr>
 						<td colSpan={3}>
-							<button>envoyer</button>
+							<button> envoyer </button>
 						</td>
 					</tr>
 					<tr>

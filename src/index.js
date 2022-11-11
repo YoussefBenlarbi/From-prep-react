@@ -1,12 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App';
-
+import App from './App'
+import Authentification from './S9/Authentification';
+// 
 const root = ReactDOM.createRoot(document.getElementById('root'));
+// const [value,setValue] =useState(false);
+
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+	<React.StrictMode>
+    <h1>Saisir les Infos !</h1>
+		<App login={'a'} password={'a'} />
+	</React.StrictMode>
 );
 
 // If you want to start measuring performance in your app, pass a function

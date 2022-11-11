@@ -1,11 +1,16 @@
-// import MyForm from "./Form";
-import MyClassForm from "./ClassForm";
+import styled from 'styled-components';
+
+// import MyClassForm from "./ClassForm";
+import Authentification from './S9/Authentification';
+import Anonym from './S9/Anonym';
+import Connecte from './S9/Connecte';
+import { useState } from 'react';
 function App() {
-  return (
+	return(
     <div>
-    <MyClassForm/>
+      <Authentification/>
     </div>
-  );
+  )
 }
 
 export default App;

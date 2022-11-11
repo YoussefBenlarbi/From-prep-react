@@ -4,14 +4,17 @@ class MyClassForm extends React.Component {
 	constructor(props) {
 		super(props);
 		MyClassForm.Stylelabl = { color: 'red' };
+		MyClassForm.photos = ['photo/photo1.png','photo/photo2.jpg','photo/photo3.png'];
 		this.state = {
 			nom: '',
 			prenom: '',
+			date: '',
 			description: '',
 			nationalite: 'rien',
 			sexe: 'R',
 			lang: [],
 			information: '',
+			photo: '',
 		};
 	}
 
@@ -30,6 +33,12 @@ class MyClassForm extends React.Component {
 	HandleSexe(e) {
 		this.setState({ sexe: e.target.value });
 	}
+	Handledate(e) {
+		this.setState({ date: e.target.value });
+	}
+	Handlephoto(e) {
+		this.setState({ photo: e.target.value });
+	}
 	HandleLang(e) {
 		e.target.checked
 			? this.setState({ lang: [...this.state.lang, e.target.value] })
@@ -45,7 +54,11 @@ class MyClassForm extends React.Component {
              Description :${this.state.description} 
              Nationalite : ${this.state.nationalite}
              Sexe : ${this.state.sexe}
-             Langues : ${this.state.lang} `,
+             Langues : ${this.state.lang}
+
+			  img : ${(<img src={this.state.photo} width={'50px	'}/>)}
+			  `,
+			//   ${<img src={}/>}
 		});
 	}
 
@@ -84,6 +97,36 @@ class MyClassForm extends React.Component {
 							</td>
 							<td style={MyClassForm.Stylelabl}>
 								{this.state.prenom.trim() === '' ? '(*)' : ''}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label htmlFor="photo">photo :</label>
+							</td>
+							<td>
+								<select onChange={(e) => this.Handlephoto(e)}>
+									{MyClassForm.photos.map((p, index) => (
+										<option value={p}>{index}</option>
+									))}
+								</select>
+							</td>
+							<td style={MyClassForm.Stylelabl}>
+								{/* {this.state.photo.trim() === '' ? '(*)' : this.state.photo} */}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								<label htmlFor="date">date :</label>
+							</td>
+							<td>
+								<input
+									type="date"
+									placeholder="Saisir le date ...."
+									onChange={(e) => this.Handledate(e)}
+								/>
+							</td>
+							<td style={MyClassForm.Stylelabl}>
+								{this.state.date.trim() === '' ? '(*)' : ''}
 							</td>
 						</tr>
 						<tr>
