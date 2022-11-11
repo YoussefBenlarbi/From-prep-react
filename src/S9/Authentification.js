@@ -1,16 +1,16 @@
 import { useState } from 'react';
 import Comptes from '../data/Comptes';
 function Authentification() {
-	const StyleButton = {
-		color: '#fff',
-		borderColor: ' #5c5cff',
-		padding: '5px',
-		width: '120px',
-		fontSize: '16px',
-		fontFamilly: 'sans-serif',
-		backgroundColor: '#5c5cff',
-		borderRadius: '5px',
-	};
+	// const StyleButton = {
+	// 	color: '#fff',
+	// 	borderColor: ' #5c5cff',
+	// 	padding: '5px',
+	// 	width: '120px',
+	// 	fontSize: '16px',
+	// 	fontFamilly: 'sans-serif',
+	// 	backgroundColor: '#5c5cff',
+	// 	borderRadius: '5px',
+	// };
 	const lblStyle = { color: 'red' };
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');

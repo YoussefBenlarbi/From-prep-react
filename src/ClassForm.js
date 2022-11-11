@@ -56,7 +56,7 @@ class MyClassForm extends React.Component {
              Sexe : ${this.state.sexe}
              Langues : ${this.state.lang}
 
-			  img : ${(<img src={this.state.photo} width={'50px	'}/>)}
+			  img : ${(<img src={this.state.photo} width={'50px	'} alt={'alt attribut'}/>)}
 			  `,
 			//   ${<img src={}/>}
 		});
