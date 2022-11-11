@@ -1,20 +1,22 @@
 import { useState } from 'react';
 import Comptes from '../data/Comptes';
 function Authentification() {
-	// const StyleButton = {
-	// 	color: '#fff',
-	// 	borderColor: ' #5c5cff',
-	// 	padding: '5px',
-	// 	width: '120px',
-	// 	fontSize: '16px',
-	// 	fontFamilly: 'sans-serif',
-	// 	backgroundColor: '#5c5cff',
-	// 	borderRadius: '5px',
-	// };
+	const StyleButton = {
+		color: '#fff',
+		borderColor: 'firebrick',
+		padding: '5px',
+		width: '80px',
+		fontSize: '14px',
+		fontFamilly: 'sans-serif',
+		backgroundColor: 'firebrick',
+		borderRadius: '3px',
+		marginTop: '10px',
+	};
 	const lblStyle = { color: 'red' };
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
-	const [isLogged, setisLogged] = useState(false);
+	const [isLogged, setisLogged] = useState('');
+	const [info, setInfo] = useState('');
 
 	function Check(e) {
 		e.preventDefault();
@@ -24,7 +26,11 @@ function Authentification() {
 		if (compte != null) {
 			setisLogged(true);
 		} else {
-			setisLogged(false);
+			if (login.trim() !== '' && login.trim() !== '') {
+				setisLogged(false);
+			} else {
+				setInfo('Tous les champs sont obligatoires !');
+			}
 		}
 	}
 
@@ -35,7 +41,11 @@ function Authentification() {
 			<form onSubmit={(e) => Check(e)}>
 				<table>
 					<tr>
-						<td>Login</td>
+						<td
+							style={{ fontWeight: 'bold', fontSize: '18px', color: '#383838' }}
+						>
+							Login :
+						</td>
 						<td>
 							<input
 								type="text"
@@ -46,7 +56,11 @@ function Authentification() {
 						<td style={lblStyle}>{login.trim() === '' ? '(*)' : ''}</td>
 					</tr>
 					<tr>
-						<td>password</td>
+						<td
+							style={{ fontWeight: 'bold', fontSize: '18px', color: '#383838' }}
+						>
+							password :
+						</td>
 						<td>
 							<input
 								type="password"
@@ -59,11 +73,20 @@ function Authentification() {
 
 					<tr>
 						<td colSpan={3}>
-							<button>Connect</button>{' '}
+							<button style={StyleButton}>Connect</button>{' '}
 						</td>
 					</tr>
 					<tr>
-						<td colSpan={3}>{isLogged === false ? '' : 'Connected !'}</td>
+						<td
+							colSpan={3}
+							style={{ fontWeight: 'bold', fontSize: '18px', color: '#383838' }}
+						>
+							{isLogged === ''
+								? info
+								: isLogged === true
+								? 'Connected'
+								: 'Les infos incorrect !'}
+						</td>
 					</tr>
 				</table>
 			</form>
