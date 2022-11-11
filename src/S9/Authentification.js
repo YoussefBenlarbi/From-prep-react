@@ -37,8 +37,32 @@ function Authentification() {
 	// const isLoggedIn = compte != null ? true : false;
 
 	return (
-		<div>
-			<form onSubmit={(e) => Check(e)}>
+		<div
+			style={{
+				display: 'flex',
+				justifyContent: 'center',
+				alignItems: 'center'
+			}}
+		>
+			<form
+				onSubmit={(e) => Check(e)}
+				style={{
+					border: '2px solid ',
+					padding: '5px',
+					borderRadius: '5px',
+					width: '400px',
+				}}
+			>
+				<h2
+					style={{
+						margin: ' 0px ',
+						paddingLeft: '100px',
+						paddingBottom: '10px',
+						color: 'firebrick',
+					}}
+				>
+					Saisir les Infos !
+				</h2>
 				<table>
 					<tr>
 						<td
@@ -73,13 +97,21 @@ function Authentification() {
 
 					<tr>
 						<td colSpan={3}>
-							<button style={StyleButton}>Connect</button>{' '}
+							<span style={{ paddingLeft: '130px' }}>
+								{' '}
+								<button style={StyleButton}>Connect</button>{' '}
+							</span>
 						</td>
 					</tr>
 					<tr>
 						<td
 							colSpan={3}
-							style={{ fontWeight: 'bold', fontSize: '18px', color: '#383838' }}
+							style={{
+								fontWeight: 'bold',
+								fontSize: '18px',
+								color: '#383838',
+								paddingLeft: '70px',
+							}}
 						>
 							{isLogged === ''
 								? info
