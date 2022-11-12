@@ -1,17 +1,18 @@
 import { useState } from 'react';
 import Comptes from '../data/Comptes';
+import {ButtonS} from './../Components/styles/Button.styled'
 function Authentification() {
-	const StyleButton = {
-		color: '#fff',
-		borderColor: 'firebrick',
-		padding: '5px',
-		width: '80px',
-		fontSize: '14px',
-		fontFamilly: 'sans-serif',
-		backgroundColor: 'firebrick',
-		borderRadius: '3px',
-		marginTop: '10px',
-	};
+	// const StyleButton = {
+	// 	color: '#fff',
+	// 	borderColor: 'firebrick',
+	// 	padding: '5px',
+	// 	width: '80px',
+	// 	fontSize: '14px',
+	// 	fontFamilly: 'sans-serif',
+	// 	backgroundColor: 'firebrick',
+	// 	borderRadius: '3px',
+	// 	marginTop: '10px',
+	// };
 	const lblStyle = { color: 'red' };
 	const [login, setLogin] = useState('');
 	const [password, setPassword] = useState('');
@@ -26,9 +27,10 @@ function Authentification() {
 		if (compte != null) {
 			setisLogged(true);
 		} else {
-			if (login.trim() !== '' && login.trim() !== '') {
+			if (login.trim() !== '' || password.trim() !== '') {
 				setisLogged(false);
 			} else {
+				// setisLogged(false);
 				setInfo('Tous les champs sont obligatoires !');
 			}
 		}
@@ -99,7 +101,7 @@ function Authentification() {
 						<td colSpan={3}>
 							<span style={{ paddingLeft: '130px' }}>
 								{' '}
-								<button style={StyleButton}>Connect</button>{' '}
+								<ButtonS >Connect</ButtonS>{' '}
 							</span>
 						</td>
 					</tr>
